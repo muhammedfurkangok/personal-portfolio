@@ -445,7 +445,33 @@ body:not(.user-is-tabbing) a:focus {
     align-items: center;
 }
 
-@media(max-width: 900px) {
+.work__boxes {
+  display:grid; /* Yanyana düzen için */
+  justify-content: space-between; /* Elemanlar arasında boşluk bırak */
+  flex-wrap: wrap; /* Ekran boyutuna göre taşma yapmasın */
+}
+
+.work__item {
+  width: 45%; /* Her projenin genişliğini belirle */
+  margin-bottom: 20px; /* Alt kısmına boşluk ekle */
+  text-align: center; /* İçeriği ortala */
+}
+
+.work__item img {
+  width: 100%; /* Resmin boyutunu kutuya göre ayarla */
+  height: auto; /* Oranı koru */
+}
+
+.work__list {
+  padding: 0; /* İç boşluğu sıfırla */
+}
+
+.work__list li {
+  margin: 5px 0; /* Her madde arasında boşluk bırak */
+}
+
+
+@media(max-width: 00px) {
     .work__box {
         align-items: initial;
         flex-direction: column-reverse;
@@ -468,7 +494,7 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .work__text {
-    flex: 0 0 30%;
+    flex: 0 0 50%;
 }
 
 .work__list {
@@ -492,6 +518,16 @@ body:not(.user-is-tabbing) a:focus {
     margin-bottom: var(--gutter-normal);
 }
 
+.work__boxes a {
+    margin-right: 100px; /* Sağdaki resim ile arasına 20px boşluk ekler */
+}
+
+/* Son öğe (resim) sağda margin almaz */
+.work__boxes a:last-child {
+    margin-right: 0;
+}
+
+
 @media(min-width: 901px) {
     .work__image-box {
         flex: 1;
@@ -505,20 +541,22 @@ body:not(.user-is-tabbing) a:focus {
     }
 }
 
+
+
 /* --------------------------------------- */
 /* ----- Clients ----- */
 /* --------------------------------------- */
-
 .client__logos {
     display: flex;
     justify-content: space-between;
-    filter: invert(100%) grayscale(100%) opacity(.8);
 }
 
 .client__logo {
-    height: 6.5rem;
-    max-width: 18rem;
+    height: 20rem;
+    max-width: 20rem;
 }
+
+
 
 @media(max-width: 1240px) {
     .client__logos {
