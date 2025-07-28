@@ -296,16 +296,16 @@ body:not(.user-is-tabbing) a:focus {
 
     .link__text::after {
         content: '';
-        display: block;
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
+        display: inline-block;
         height: 2px;
         background: var(--accent-color);
-        z-index: -1;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
     }
 
     .link__text:focus {
@@ -498,7 +498,7 @@ body:not(.user-is-tabbing) a:focus {
 }
 
     .header__text p {
-        margin: 1.5rem auto 3.5rem;
+        margin: 1.5rem auto 4.5rem; /* Adjusted: Increased margin-bottom from 3.5rem to 4.5rem */
         max-width: var(--container-medium-width);
         font-family: 'Jost', sans-serif;
         font-size: var(--font-size-medium);
@@ -551,7 +551,6 @@ body:not(.user-is-tabbing) a:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     /* Removed border, border-radius, background-color, box-shadow */
     padding: var(--gutter-normal);
     transition: transform 0.2s ease-in-out; /* Removed box-shadow transition */
@@ -566,7 +565,7 @@ body:not(.user-is-tabbing) a:focus {
     flex: 1;
     width: 100%;
     margin-top: var(--gutter-small); /* Space between image and text */
-    text-align: left; /* Align text within the box to left */
+    text-align: center; /* Changed: Align text within the box to center */
     padding: 0 1rem; /* Add horizontal padding to text */
 }
 
