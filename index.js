@@ -51,7 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
     sunIcon.classList.add('mode-switch-icon');
     sunIcon.innerHTML = '☀️'; // Sun icon
 
-    const moonIcon = document.classList.add('mode-switch-icon');
+    const moonIcon = document.createElement('span'); // Changed from document.classList.add to document.createElement
+    moonIcon.classList.add('mode-switch-icon');
     moonIcon.innerHTML = '🌙'; // Moon icon
 
     const slider = document.createElement('div');
