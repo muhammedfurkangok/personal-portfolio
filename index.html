@@ -2,251 +2,329 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/png" href="./images/gamepad.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="./images/gamepad.png" />
 
-  <title>
-    Furkan Gök | Game Developer.
-  </title>
+    <title>
+        Furkan Gök | Game Developer.
+    </title>
 
-  <meta name="description" content="A Ambitious Game Developer">
-  <meta name="keywords" content="Game Dev, Unity Dev, Graphics Engines,C#,C++" />
-  <link rel="stylesheet" href="index.css" />
+    <meta name="description" content="A Ambitious Game Developer">
+    <meta name="keywords" content="Game Dev, Unity Dev, Graphics Engines,C#,C++" />
+    <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
 
-  <!-- ***** Header ***** -->
-
-  <header class="header" role="banner" id="top">
-    <div class="row">
-      <nav class="nav" role="navigation">
-        <ul class="nav__items">
-          <li class="nav__item"><a href="#work" class="nav__link">Personal Work</a></li>
-          <li class="nav__item"><a href="#clients" class="nav__link">Contribute</a></li>
-          <li class="nav__item">
-            <a href="#contact" class="nav__link">About</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <div class="header__text-box row">
-      <div class="header__text">
-        <h1 class="heading-primary">
-          <!-- Replace the following name with your name -->
-          <span>Furkan Gök</span>
-        </h1>
-        <!-- Put a small paragraph about yourself -->
-        <p>A Passionate Game Developer </p>
-        <a href="#contact" class="btn btn--pink">About</a>
-        <a href="https://github.com/muhammedfurkangok" class="btn btn--pink" target="_blank">Github</a>
-        <a href="https://leetcode.com/u/L0fs/" class="btn btn--pink" target="_blank">LeetCode</a>
-      </div>
-    </div>
-  </header>
-
-  <main role="main">
-
-    <!-- ***** Work ***** -->
-
-    <section class="work" id="work">
-      <div class="row">
-        <h2>Some Of My Projects</h2>
-        <p style="font-size: 25px; color: #555;">(All My Projects on GitHub.)</p>
-        <div class="work__boxes">
-
-          <!-- Each div with the work__box class is a project. -->
-
-          <div class="work__box">
-            <div class="work__text">
-              <h3>Merge Pile</h3>
-              <p>
-                A  Puzzle Game Prototype I made in Furtle Game Internship
-              </p>
-              <ul class="work__list">
-                <li>Unity</li>
-                <li>C#</li>
-                <li>Level Editor</li>
-              </ul>
-
-              <div class="work__links">
-                <a href="https://github.com/muhammedfurkangok/Merge-Pile/tree/main" target="_blank" class="link__text">
-                  Visit Site <span>&rarr;</span>
-                </a>
-                <a href="https://github.com/muhammedfurkangok/Merge-Pile/tree/main" title="View Source Code" target="_blank">
-                  <img src="./images/github.svg "  class="work__code" alt="GitHub">
-                </a>
-              </div>
-            </div>
-            <div class="work__image-box">
-              
-              <img src="./images/MergePile.jpg" width="400" height="400" class="work__image" alt="Project 1" />
-            </div>
-          </div>
-
-          <div class="work__box">
-            <div class="work__text">
-              <h3>Ghost Masters!</h3>
-              <p>
-                A  Arcade Idle Game Prototype I'm made in Furtle Game Internship
-              </p>
-              <ul class="work__list">
-                <li>Unity</li>
-                <li>C#</li>
-              </ul>
-
-              <div class="work__links">
-                <a href="https://github.com/muhammedfurkangok/Ghost-Masters-Showcase" class="link__text" target="_blank">
-                  Visit Site <span>&rarr;</span>
-                </a>
-                <a href="https://github.com/muhammedfurkangok/Ghost-Masters-Showcase" target="_blank">
-                  <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
-                </a>
-              </div>
-            </div>
-            <div class="work__image-box">
-              <img src="./images/ghostmasters.png" width="400" height="400" class="work__image" alt="Project 1" />
-            </div>
-          </div>
-
-          <div class="work__box">
-            <div class="work__text">
-              <h3>OpenGL - Space Shooter</h3>
-              <p>
-                A Space Shooter Game I Made With Low Level C++
-              </p>
-              <ul class="work__list">
-                <li>OpenGl</li>
-                <li>C++</li>
-                <li>GLFW,GLEW</li>
-              </ul>
-
-              <div class="work__links">
-                <a href="https://github.com/muhammedfurkangok/OpenGl-SpaceShooter?tab=readme-ov-file" class="link__text" target="_blank">
-                  Visit Site <span>&rarr;</span>
-                </a>
-                <a href="https://github.com/muhammedfurkangok/OpenGl-SpaceShooter?tab=readme-ov-file" target="_blank">
-                  <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
-                </a>
-              </div>
-            </div>
-            <div class="work__image-box">
-              <img src="./images/spaceshooter.png" class="work__image" alt="Project 3" />
-            </div>
-          </div>
+    <header class="header" role="banner" id="home">
+        <div class="row">
+            <nav class="nav" role="navigation">
+                <ul class="nav__items">
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#pc-games" class="nav__link">PC Games</a></li>
+                    <li class="nav__item"><a href="#mobile-games" class="nav__link">Mobile Games</a></li>
+                    <li class="nav__item"><a href="#cpp-projects" class="nav__link">C++ Projects</a></li>
+                    <li class="nav__item"><a href="#unity-systems" class="nav__link">Unity Systems</a></li>
+                    <li class="nav__item">
+                        <a href="#about-contact" class="nav__link">About / Contact</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-      </div>
-    </section>
-<section class="work" id="clients">
-  <div class="row">
-    <h2>Projects I contributed to</h2>
-    <div class="work__boxes">
-      <!-- Project 1 -->
-      <div class="client_logo">
-        <a href="https://play.google.com/store/apps/details?id=com.FurtleGame.BuildABoat" title="View Source Code" target="_blank">
-          <img src="./images/boatgame.png"  class="client_logo" alt="Project 1" />
-        </a>
-        <div class="link__text">
-          <h3>Build a Boat!</h3>
-          <ul class="work__text">
-            <li>Slingshot Mechanic</li>
-            <li>Upgrade System & Upgrade Animations</li>
-            <li>Distance System</li>
-          </ul>
+        <div class="header__text-box row">
+            <div class="header__text">
+                <h1 class="heading-primary">
+                    <span>Hi, I’m Furkan – a game developer specialized in Unity, C++, and mobile game development.</span>
+                </h1>
+                <a href="#pc-games" class="btn btn--pink">Check out my latest PC games &rarr;</a>
+                <a href="#mobile-games" class="btn btn--pink">Explore my mobile projects &rarr;</a>
+                <a href="#cpp-projects" class="btn btn--pink">See my C++ engine work &rarr;</a>
+            </div>
         </div>
-      </div>
+    </header>
 
-      <!-- Project 2 -->
-      <div class="client_logo">
-        <a href="https://play.google.com/store/apps/details?id=com.udogames.magicventure" title="View Source Code" target="_blank">
-          <img src="./images/magicventure.png" class="client_logo" alt="Project 2" />
-        </a>
-        <div class="link__text">
-          <h3>Magic Venture</h3>
-          <ul class="work__list">
-            <li>Entry sequence for game lore</li>
-          </ul>
+    <main role="main">
+
+        <section class="work" id="pc-games">
+            <div class="row">
+                <h2>PC Games</h2>
+                <p style="font-size: 25px; color: #555;">(All My Projects on GitHub.)</p>
+                <div class="work__boxes">
+
+                    <div class="work__box">
+                        <div class="work__text">
+                            <h3>Merge Pile</h3>
+                            <p>A Puzzle Game Prototype I made in Furtle Game Internship</p>
+                            <p>Yapıldığı süre: 4 Hafta</p>
+                            <h4>Teknik Detaylar:</h4>
+                            <ul class="work__list">
+                                <li>Unity 2021.3 LTS</li>
+                                <li>C#</li>
+                                <li>Custom Level Editor</li>
+                                <li>DOTween</li>
+                                <li>Cinemachine</li>
+                            </ul>
+                            <h4>Katkın:</h4>
+                            <p>Game design, gameplay systems (puzzle logic, merging mechanics), UI/UX implementation.</p>
+                            <div class="work__links">
+                                <a href="https://github.com/muhammedfurkangok/Merge-Pile/tree/main" target="_blank" class="link__text">
+                                    Visit Site <span>&rarr;</span>
+                                </a>
+                                <a href="https://github.com/muhammedfurkangok/Merge-Pile/tree/main" title="View Source Code" target="_blank">
+                                    <img src="./images/github.svg " class="work__code" alt="GitHub">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="work__image-box">
+                            <img src="./images/MergePile.jpg" class="work__image" alt="Merge Pile Project" />
+                        </div>
+                    </div>
+
+                    <div class="work__box">
+                        <div class="work__text">
+                            <h3>Ghost Masters!</h3>
+                            <p>A Arcade Idle Game Prototype I'm made in Furtle Game Internship</p>
+                            <p>Yapıldığı süre: 3 Hafta</p>
+                            <h4>Teknik Detaylar:</h4>
+                            <ul class="work__list">
+                                <li>Unity 2021.3 LTS</li>
+                                <li>C#</li>
+                                <li>Pathfinding (Unity NavMesh)</li>
+                                <li>Pooling System</li>
+                            </ul>
+                            <h4>Katkın:</h4>
+                            <p>Core gameplay loop development, enemy AI, progression systems, particle effects integration.</p>
+                            <div class="work__links">
+                                <a href="https://github.com/muhammedfurkangok/Ghost-Masters-Showcase" class="link__text" target="_blank">
+                                    Visit Site <span>&rarr;</span>
+                                </a>
+                                <a href="https://github.com/muhammedfurkangok/Ghost-Masters-Showcase" target="_blank">
+                                    <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="work__image-box">
+                            <img src="./images/ghostmasters.png" class="work__image" alt="Ghost Masters Project" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="work" id="mobile-games">
+            <div class="row">
+                <h2>Mobile Games</h2>
+                <div class="work__boxes">
+
+                    <div class="work__box">
+                        <div class="work__text">
+                            <h3>Build a Boat!</h3>
+                            <p>Katkıda bulunduğum mobil oyun.</p>
+                            <p>Yayınlandığı Market: Google Play</p>
+                            <h4>Rolün ve Katkın:</h4>
+                            <ul class="work__list">
+                                <li>Slingshot Mechanic</li>
+                                <li>Upgrade System & Upgrade Animations</li>
+                                <li>Distance System</li>
+                            </ul>
+                            <h4>Teknik Araçlar:</h4>
+                            <p>Unity, C#, Firebase, UnityAds, RemoteConfig</p>
+                            <div class="work__links">
+                                <a href="https://play.google.com/store/apps/details?id=com.FurtleGame.BuildABoat" title="View on Google Play" target="_blank" class="link__text">
+                                    Visit Store <span>&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="work__image-box">
+                            <img src="./images/boatgame.png" class="work__image" alt="Build a Boat Project" />
+                        </div>
+                    </div>
+
+                    <div class="work__box">
+                        <div class="work__text">
+                            <h3>Magic Venture</h3>
+                            <p>Katkıda bulunduğum mobil oyun.</p>
+                            <p>Yayınlandığı Market: Google Play</p>
+                            <h4>Rolün ve Katkın:</h4>
+                            <ul class="work__list">
+                                <li>Entry sequence for game lore</li>
+                                <li>Dialogue system integration</li>
+                            </ul>
+                            <h4>Teknik Araçlar:</h4>
+                            <p>Unity, C#, DoTween, Firebase</p>
+                            <div class="work__links">
+                                <a href="https://play.google.com/store/apps/details?id=com.udogames.magicventure" title="View on Google Play" target="_blank" class="link__text">
+                                    Visit Store <span>&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="work__image-box">
+                            <img src="./images/magicventure.png" class="work__image" alt="Magic Venture Project" />
+                        </div>
+                    </div>
+
+                    <div class="work__box">
+                        <div class="work__text">
+                            <h3>My Nursing Home (Creative Ad)</h3>
+                            <p>Creative reklamını yaptığım mobil oyun.</p>
+                            <p>Yayınlandığı Market: Google Play</p>
+                            <p>Bu reklam, oyunun ana özelliklerini ve oynanışını vurgulamak için tasarlandı.</p>
+                            <div class="work__links">
+                                <a href="https://play.google.com/store/apps/details?id=com.FurtleGame.MyNursingHome" title="View on Google Play" target="_blank" class="link__text">
+                                    Visit Store <span>&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="work__image-box">
+                            <img src="./images/nursing.png" class="work__image" alt="Nursing Home Creative Ad" />
+                        </div>
+                    </div>
+
+                    <div class="work__box">
+                        <div class="work__text">
+                            <h3>Iceskate (Creative Ad)</h3>
+                            <p>Creative reklamını yaptığım mobil oyun.</p>
+                            <p>Yayınlandığı Market: Google Play</p>
+                            <p>Kullanıcı etkileşimini artırmak ve oyunun eğlenceli yönlerini öne çıkarmak için tasarlanmış bir reklam çalışması.</p>
+                            <div class="work__links">
+                                <a href="https://play.google.com/store/apps/details?id=com.udogames.iceskateland" title="View on Google Play" target="_blank" class="link__text">
+                                    Visit Store <span>&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="work__image-box">
+                            <img src="./images/iceskate.png" class="work__image" alt="Iceskate Creative Ad" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="work" id="cpp-projects">
+            <div class="row">
+                <h2>C++ Projects</h2>
+                <div class="work__boxes">
+
+                    <div class="work__box">
+                        <div class="work__text">
+                            <h3>OpenGL - Space Shooter</h3>
+                            <p>A Space Shooter Game I Made With Low Level C++</p>
+                            <p>Ne amaçla yapıldı: Öğrenme amaçlı, düşük seviye grafik programlama ve oyun motoru mimarisi denemeleri.</p>
+                            <h4>Teknik Detaylar:</h4>
+                            <ul class="work__list">
+                                <li>OpenGL</li>
+                                <li>C++</li>
+                                <li>GLFW, GLEW</li>
+                                <li>Entity Component System (ECS)</li>
+                                <li>Custom Shader Pipeline</li>
+                            </ul>
+                            <div class="work__links">
+                                <a href="https://github.com/muhammedfurkangok/OpenGl-SpaceShooter?tab=readme-ov-file" class="link__text" target="_blank">
+                                    Visit Site <span>&rarr;</span>
+                                </a>
+                                <a href="https://github.com/muhammedfurkangok/OpenGl-SpaceShooter?tab=readme-ov-file" target="_blank">
+                                    <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="work__image-box">
+                            <img src="./images/spaceshooter.png" class="work__image" alt="OpenGL Space Shooter Project" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="work" id="unity-systems">
+            <div class="row">
+                <h2>Unity Systems / Tools</h2>
+                <div class="work__boxes">
+
+                    <div class="work__box">
+                        <div class="work__text">
+                            <h3>UI Manager (Örnek)</h3>
+                            <p>Ne amaçla yapıldı: Projelerimde ortak bir UI yönetim sistemi oluşturarak geliştirme sürecini hızlandırmak ve tutarlılık sağlamak.</p>
+                            <p>Hangi projelerde kullanıldı: Merge Pile, Ghost Masters!</p>
+                            <h4>Geliştirilen Özel Mantık / Pattern:</h4>
+                            <p>ScriptableObject tabanlı bir mimari kullanarak UI panellerini merkezi olarak yönetme, DOTween ile akıcı animasyonlar entegrasyonu ve State Machine Pattern uygulaması.</p>
+                            <div class="work__links">
+                                <a href="#" class="link__text" target="_blank">
+                                    View on GitHub <span>&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="work__image-box">
+                            <img src="./images/project-3.png" class="work__image" alt="UI Manager Example" />
+                        </div>
+                    </div>
+
+                    <div class="work__box">
+                        <div class="work__text">
+                            <h3>Level Creator Tool (Örnek)</h3>
+                            <p>Ne amaçla yapıldı: Hızlı ve etkili bir şekilde oyun seviyeleri tasarlamak ve düzenlemek için geliştirilmiş özel araç.</p>
+                            <p>Hangi projelerde kullanıldı: Merge Pile (özelleştirilmiş versiyon)</p>
+                            <h4>Geliştirilen Özel Mantık / Pattern:</h4>
+                            <p>Unity Editor Scripting kullanılarak görsel ve interaktif bir seviye düzenleyici, ScriptableObject ile seviye verisi yönetimi.</p>
+                            <div class="work__links">
+                                <a href="#" class="link__text" target="_blank">
+                                    View on GitHub <span>&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="work__image-box">
+                            <img src="./images/project-2.png" class="work__image" alt="Level Creator Tool Example" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="about-contact">
+            <div class="row">
+                <h2>About / Contact</h2>
+                <div class="contact__info">
+                    <p>
+                        Merhaba! Ben Furkan, bilgisayar bilimleri öğrencisi ve tutkulu bir oyun geliştiricisiyim. Şu anda oyun geliştirme becerilerimi geliştirmeye ve algoritma problemlerine odaklanarak problem çözme yeteneğimi güçlendirmeye odaklanıyorum. Unity, Grafik Programlama, C++ ve C# gibi konuları aktif olarak keşfediyorum. Amacım, öğrenmeye ve gelişmeye devam ederek oyun geliştirme alanında güçlü bir kariyer inşa etmek.
+                    </p>
+                    <h4>Linkler:</h4>
+                    <ul class="work__list">
+                        <li>LinkedIn: <a href="https://www.linkedin.com/in/furkangokcs/" target="_blank">linkedin.com/in/furkangokcs/</a></li>
+                        <li>GitHub: <a href="https://github.com/muhammedfurkangok" target="_blank">github.com/muhammedfurkangok</a></li>
+                        <li>LeetCode: <a href="https://leetcode.com/u/L0fs/" target="_blank">leetcode.com/u/L0fs/</a></li>
+                    </ul>
+                    <a href="mailto:furkanngok0@gmail.com" class="btn">furkanngok0@gmail.com</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo" class="footer">
+        <div class="row">
+            <ul class="footer__social-links">
+                <li class="footer__social-link-item">
+                    <a href="https://github.com/muhammedfurkangok" title="Link to Github Profile" target="_blank">
+                        <img src="./images/github.svg" class="footer__social-image" alt="Github">
+                    </a>
+                </li>
+                <li class="footer__social-link-item">
+                    <a href="https://www.linkedin.com/in/furkangokcs/" target="_blank">
+                        <img src="./images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
+                    </a>
+                </li>
+            </ul>
         </div>
-      </div>
-    </div>
-  </div>
+    </footer>
 
-  <section>
-  <div class="row">
-    <h2>Projects I made creative ads</h2>
-    <div class="client__logos">
-      <!-- Add logos of the clients or companies you have worked with -->
-      <a href="https://play.google.com/store/apps/details?id=com.FurtleGame.MyNursingHome" title="View Source Code" target="_blank">
-        <img src="./images/nursing.png" class="client_logo" alt="Project 2" />
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=com.udogames.iceskateland" title="View Source Code" target="_blank">
-        <img src="./images/iceskate.png" class="client_logo" alt="Project 2" />
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=com.udogames.magicventure" title="View Source Code" target="_blank">
-        <img src="./images/magicventure.png" class="client_logo" alt="Project 2" />
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=com.FurtleGame.BuildABoat" title="View Source Code" target="_blank">
-        <img src="./images/boatgame.png" class="client_logo" alt="Project 2" />
-      </a>
-    </div>
-  </div>
-
-</section>  
-
-
-    <!-- ***** About ***** -->
-
-
-
-  <!-- ***** Contact ***** -->
-
-  <section class="contact" id="contact">
-    <div class="row">
-      <h2>About</h2>
-      <div class="contact__info">
-        <p>
-        
-          Hello!
-          I'm Furkan, a passionate game developer and a Computer Science student. I'm currently focused on improving my skills in game development and strengthening my problem-solving abilities by working on algorithm challenges.
-
-         I'm actively exploring topics such as Unity, Graphics Programming, C++, and C#. My goal is to continue learning and growing, building a strong career in game development.
-
-          If you'd like to get in touch with me, please use the links provided below.
-         Thank you!
-
-          
-        </p>
-        <!-- Replace the email with yours -->
-        <a href="mailto:furkanngok0@gmail.com" class="btn">furkanngok0@gmail.com</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ***** Footer ***** -->
-
-  <footer role="contentinfo" class="footer">
-    <div class="row">
-      <ul class="footer__social-links">
-        <li class="footer__social-link-item">
-          <a href="https://github.com/muhammedfurkangok" title="Link to Github Profile" target="_blank">
-            <img src="./images/github.svg" class="footer__social-image" alt="Github">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href=https://www.linkedin.com/in/furkangokcs/" target="_blank">
-            <img src="./images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
-          </a>
-        </li>
-      </ul>
-      
-    </div>
-  </footer>
-
-  <a href="#top" class="back-to-top" title="Back to Top">
-    <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image"/>
-  </a>
-  <script src="./index.js"></script>
+    <a href="#home" class="back-to-top" title="Back to Top">
+        <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image" />
+    </a>
+    <script src="./index.js"></script>
 </body>
 
 </html>

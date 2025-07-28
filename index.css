@@ -30,27 +30,21 @@
     --font-size-large: 5.5rem;
     --font-size-huge: 7.5rem;
     --font-stack: 'Hk Grotesk', sans-serif;
-
     --line-height-normal: 1.7;
     --line-height-small: 1.2;
-
     --black: #000;
     --pink: #ff3258;
     --white: #f0e9f2;
     --white-1: #e5e5e6da;
-
-
     --container-max-width: 1180px;
     --container-normal-width: 800px;
-    --container-medium-width: 700px; 
+    --container-medium-width: 700px;
     --container-small-width: 500px;
-
     --gutter-huge: 12rem;
     --gutter-medium: 6rem;
     --gutter-normal: 3rem;
     --gutter-small-1: 2.5rem;
     --gutter-small: 2rem;
-
     --border-light: 1px solid rgb(36, 35, 35);
 }
 
@@ -145,14 +139,14 @@ h2 {
     margin-bottom: var(--gutter-medium);
 }
 
-h2::after {
-    content: '';
-    display: block;
-    height: 2px;
-    width: 10rem;
-    background: var(--pink);
-    margin: var(--gutter-small) 0;
-}
+    h2::after {
+        content: '';
+        display: block;
+        height: 2px;
+        width: 10rem;
+        background: var(--pink);
+        margin: var(--gutter-small) 0;
+    }
 
 h3 {
     font-size: var(--font-size-medium-1);
@@ -178,7 +172,7 @@ p {
 }
 
 @media(max-width: 900px) {
-    p { 
+    p {
         max-width: var(--container-small-width);
     }
 }
@@ -219,46 +213,46 @@ body:not(.user-is-tabbing) a:focus {
     padding: 1rem 4.2rem;
     text-decoration: none;
     color: inherit;
-    border: 1px solid  var(--pink);
+    border: 1px solid var(--pink);
     font-weight: 400;
 }
 
-.btn:focus {
-    outline: none;
-}
+    .btn:focus {
+        outline: none;
+    }
 
-.btn::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 100%;
-    background: var(--white);
-    height: 100%;
-    z-index: -1;
-    transition: all 0.2s cubic-bezier(1, 0.68, 0.16, 0.9);
-}
+    .btn::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 100%;
+        background: var(--white);
+        height: 100%;
+        z-index: -1;
+        transition: all 0.2s cubic-bezier(1, 0.68, 0.16, 0.9);
+    }
 
-.btn:hover::after,
-.btn:focus::after {
-    right: 0;
-    background: var(--pink);
-}
+    .btn:hover::after,
+    .btn:focus::after {
+        right: 0;
+        background: var(--pink);
+    }
 
 .btn--pink {
     background: var(--pink);
     transition: all 0.2s;
 }
 
-.btn--pink::after {
-    display: none;
-}
+    .btn--pink::after {
+        display: none;
+    }
 
-.btn--pink:hover,
-.btn--pink:focus {
-    background: transparent;
-}
+    .btn--pink:hover,
+    .btn--pink:focus {
+        background: transparent;
+    }
 
 .link__text {
     position: relative;
@@ -269,33 +263,33 @@ body:not(.user-is-tabbing) a:focus {
     border-bottom: 1px solid var(--pink);
 }
 
-.link__text::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 100%;
-    background: var(--white);
-    height: 100%;
-    z-index: -1;
-    transition: all 0.2s cubic-bezier(1, 0.68, 0.16, 0.9);
-}
+    .link__text::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 100%;
+        background: var(--white);
+        height: 100%;
+        z-index: -1;
+        transition: all 0.2s cubic-bezier(1, 0.68, 0.16, 0.9);
+    }
 
-.link__text:focus {
-    outline: none;
-}
+    .link__text:focus {
+        outline: none;
+    }
 
-.link__text:hover::after,
-.link__text:focus:after {
-    right: 0;
-    background: var(--pink);
-}
+        .link__text:hover::after,
+        .link__text:focus:after {
+            right: 0;
+            background: var(--pink);
+        }
 
-.link__text span {
-    padding-left: 1rem;
-    font-family: sans-serif;
-}
+    .link__text span {
+        padding-left: 1rem;
+        font-family: sans-serif;
+    }
 
 /* ----- Back to Top ----- */
 
@@ -377,54 +371,60 @@ body:not(.user-is-tabbing) a:focus {
     transition: all .2s;
 }
 
-.nav__link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 100%;
-    display: inline-block;
-    height: 1rem;
-    background: var(--white);
-    transition: all 0.25s cubic-bezier(1, 0.68, 0.16, 0.9);
-}
+    .nav__link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 100%;
+        display: inline-block;
+        height: 1rem;
+        background: var(--white);
+        transition: all 0.25s cubic-bezier(1, 0.68, 0.16, 0.9);
+    }
 
-.nav__link:hover {
-    color: var(--pink);
-}
+    .nav__link:hover {
+        color: var(--pink);
+    }
 
-.nav__link:hover::after {
-    right: 0;
-    height: 2px;
-    background: var(--pink);
-}
+        .nav__link:hover::after {
+            right: 0;
+            height: 2px;
+            background: var(--pink);
+        }
 
 /* --------------------------------------- */
 /* ----- Header ----- */
 /* --------------------------------------- */
 
 .header {
-    background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)), 
-        url('./images/header.jpg');
+    background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)); /* Arka plan resmi kaldırıldı */
     height: 100vh;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     font-size: var(--font-size-normal);
+    display: flex; /* İçeriği ortalamak için */
+    align-items: center; /* Dikeyde ortala */
+    justify-content: center; /* Yatayda ortala */
+    flex-direction: column; /* İçeriği dikey sırala */
 }
 
 .header__text {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    position: static; /* Absolute konumlandırma kaldırıldı */
+    transform: none; /* Dönüşüm kaldırıldı */
+    text-align: center; /* Metni ortala */
+    padding: var(--gutter-normal); /* İç boşluk ekle */
 }
 
-.header__text p {
-    margin: 1.5rem 0 3.5rem;
-    max-width: var(--container-medium-width);
-    font-family: 'Jost', sans-serif;
-    font-size: var(--font-size-medium);
-}
+    .header__text p {
+        margin: 1.5rem 0 3.5rem;
+        max-width: var(--container-medium-width);
+        font-family: 'Jost', sans-serif;
+        font-size: var(--font-size-medium);
+        margin-left: auto; /* Ortalamak için */
+        margin-right: auto; /* Ortalamak için */
+    }
 
 @media(max-width: 500px) {
     .header {
@@ -440,68 +440,44 @@ body:not(.user-is-tabbing) a:focus {
 /* ----- Work ----- */
 /* --------------------------------------- */
 
+.work__boxes {
+    display: grid; /* Grid düzeni */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Esnek sütunlar */
+    gap: var(--gutter-normal); /* Kutular arası boşluk */
+    justify-content: center; /* Kutuları ortala */
+}
+
 .work__box {
     display: flex;
-    align-items: center;
+    flex-direction: column; /* İçeriği dikey sırala */
+    align-items: center; /* Yatayda ortala */
+    text-align: center; /* Metni ortala */
+    border: 1px solid var(--white-1); /* Görsel ayırıcı */
+    padding: var(--gutter-normal);
+    border-radius: 5px;
+    background-color: #1a1a1a; /* Kutu arka plan rengi */
 }
 
-.work__boxes {
-  display:grid; /* Yanyana düzen için */
-  justify-content: space-between; /* Elemanlar arasında boşluk bırak */
-  flex-wrap: wrap; /* Ekran boyutuna göre taşma yapmasın */
-}
-
-.work__item {
-  width: 45%; /* Her projenin genişliğini belirle */
-  margin-bottom: 20px; /* Alt kısmına boşluk ekle */
-  text-align: center; /* İçeriği ortala */
-}
-
-.work__item img {
-  width: 100%; /* Resmin boyutunu kutuya göre ayarla */
-  height: auto; /* Oranı koru */
-}
-
-.work__list {
-  padding: 0; /* İç boşluğu sıfırla */
-}
-
-.work__list li {
-  margin: 5px 0; /* Her madde arasında boşluk bırak */
-}
-
-
-@media(max-width: 00px) {
-    .work__box {
-        align-items: initial;
-        flex-direction: column-reverse;
-    }
-}
-
-.work__box:not(:last-child) {
-    margin-bottom: 25rem;
-}
-
-@media(max-width: 500px) {
     .work__box:not(:last-child) {
-        margin-bottom: 20rem;
+        margin-bottom: 0; /* Artık grid gap ile boşluk veriyoruz */
     }
-}
-
-.work__links {
-    display: flex;
-    align-items: center;
-}
 
 .work__text {
-    flex: 0 0 50%;
+    flex: 1; /* Metin kutusunun esnek olmasını sağla */
+    width: 100%; /* Kutu içinde tam genişlik */
 }
 
 .work__list {
-    /* list-style-type: square; */
-    list-style-position: inside;
+    list-style-type: disc; /* Liste öğeleri için disk işareti */
+    list-style-position: inside; /* İşaretleri metnin içinde tut */
     margin-bottom: var(--gutter-normal);
+    text-align: left; /* Liste metnini sola yasla */
+    padding-left: 20px; /* Liste işaretleri için boşluk */
 }
+
+    .work__list li {
+        margin-bottom: 5px; /* Her madde arasında boşluk bırak */
+    }
 
 .work__code {
     display: block;
@@ -510,67 +486,47 @@ body:not(.user-is-tabbing) a:focus {
     transition: all .3s;
 }
 
-.work__code:hover {
-    transform: scale(1.2);
-}
+    .work__code:hover {
+        transform: scale(1.2);
+    }
 
 .work__image-box {
-    margin-bottom: var(--gutter-normal);
+    margin-top: var(--gutter-normal); /* Resim ile metin arasına boşluk */
+    width: 100%; /* Resim kutusunun tam genişliği */
+    max-height: 250px; /* Resim yüksekliğini sınırla */
+    overflow: hidden; /* Taşmayı gizle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.work__boxes a {
-    margin-right: 100px; /* Sağdaki resim ile arasına 20px boşluk ekler */
+.work__image {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
-
-/* Son öğe (resim) sağda margin almaz */
-.work__boxes a:last-child {
-    margin-right: 0;
-}
-
-
-@media(min-width: 901px) {
-    .work__image-box {
-        flex: 1;
-        margin: 0 0 0 10rem;
-    }
-}
-
-@media(max-width: 900px) {
-    .work__code {
-        height: 4rem;
-    }
-}
-
-
 
 /* --------------------------------------- */
-/* ----- Clients ----- */
+/* ----- Clients (Değiştirildi) ----- */
 /* --------------------------------------- */
+/* Client logos bölümü tamamen kaldırıldığı veya projeler arasına entegre edildiği için bu kısım sadeleştirildi */
+/* Eğer gelecekte benzer bir bölüm eklenirse bu stiller güncellenebilir */
 .client__logos {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Logoları ortala */
+    flex-wrap: wrap; /* Esnek satır düzeni */
+    gap: var(--gutter-normal); /* Logolar arası boşluk */
 }
 
 .client__logo {
-    height: 20rem;
-    max-width: 20rem;
+    height: 15rem; /* Logo boyutunu ayarla */
+    width: auto;
+    max-width: 100%;
 }
 
-
-
-@media(max-width: 1240px) {
-    .client__logos {
-        overflow-x: scroll;
-        padding: var(--gutter-normal);
-    }
-
-    .client__logo:not(:last-of-type) {
-        margin-right: var(--gutter-medium);
-    }
-}
 
 /* --------------------------------------- */
-/* ----- About ----- */
+/* ----- About (Değiştirildi) ----- */
 /* --------------------------------------- */
 
 .about__content {
@@ -594,7 +550,7 @@ body:not(.user-is-tabbing) a:focus {
     .about__text {
         flex: 0 0 35%;
     }
-    
+
     .about__photo-container {
         flex: 1;
         margin: 0 var(--gutter-huge) 0 0;
@@ -602,12 +558,29 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 /* --------------------------------------- */
-/* ----- Contact ----- */
+/* ----- Contact (Değiştirildi) ----- */
 /* --------------------------------------- */
 
 .contact__info {
     max-width: var(--container-medium-width);
+    margin-left: auto; /* Metni ortala */
+    margin-right: auto; /* Metni ortala */
+    text-align: center; /* İçindeki metni ortala */
 }
+
+    .contact__info .work__list { /* About/Contact bölümündeki listeler için */
+        text-align: center; /* Listeyi ortala */
+        list-style-position: outside; /* İşaretleri dışarıya al */
+        padding-left: 0; /* İç boşluğu kaldır */
+        width: fit-content; /* Genişliği içeriğe sığdır */
+        margin-left: auto; /* Ortalamak için */
+        margin-right: auto; /* Ortalamak için */
+    }
+
+        .contact__info .work__list li a {
+            display: inline-block; /* Linkleri yan yana getir */
+            margin: 0 5px; /* Linkler arasına boşluk */
+        }
 
 /* --------------------------------------- */
 /* ----- Footer ----- */
@@ -638,14 +611,14 @@ body:not(.user-is-tabbing) a:focus {
     justify-content: center;
 }
 
-.footer__github-buttons iframe {
-    height: 2.5rem;
-    width: 84px;
-    transform: translateY(3px);
-}
+    .footer__github-buttons iframe {
+        height: 2.5rem;
+        width: 84px;
+        transform: translateY(3px);
+    }
 
 @media(max-width: 500px) {
     .footer {
         padding: var(--gutter-medium) 0;
-    } 
+    }
 }
