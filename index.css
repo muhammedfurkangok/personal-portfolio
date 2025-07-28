@@ -23,30 +23,42 @@
 }
 
 :root {
-    --font-size-small: 1.6rem; /* Slightly smaller for a cleaner look */
+    --font-size-small: 1.6rem;
     --font-size-normal: 2rem;
     --font-size-medium: 2.6rem;
     --font-size-medium-1: 3.2rem;
-    --font-size-large: 4.8rem; /* Reduced for less visual weight */
-    --font-size-huge: 6.8rem; /* Reduced for less visual weight */
+    --font-size-large: 4.8rem;
+    --font-size-huge: 6.8rem;
     --font-stack: 'Hk Grotesk', sans-serif;
-    --line-height-normal: 1.6; /* Slightly tighter line height */
+    --line-height-normal: 1.6;
     --line-height-small: 1.1;
-    --black: #121212; /* Slightly softer black */
-    --pink: #ff4081; /* Slightly brighter pink for better contrast */
-    --white: #f5f5f5; /* Slightly brighter white */
-    --white-1: #e0e0e0; /* Slightly brighter off-white */
-    --container-max-width: 1200px; /* Slightly increased max-width */
-    --container-normal-width: 850px;
-    --container-medium-width: 750px;
-    --container-small-width: 550px;
-    --gutter-huge: 10rem; /* Reduced spacing */
-    --gutter-medium: 5rem; /* Reduced spacing */
-    --gutter-normal: 2.5rem; /* Reduced spacing */
-    --gutter-small-1: 2rem;
-    --gutter-small: 1.5rem;
-    --border-light: 1px solid rgba(255, 255, 255, 0.1); /* Softer border */
+    /* Dark Mode Colors (Default) */
+    --primary-bg: #121212;
+    --secondary-bg: #1a1a1a;
+    --primary-text: #f5f5f5;
+    --secondary-text: #e0e0e0;
+    --accent-color: #ff4081;
+    --border-color: 1px solid rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --header-gradient-start: rgba(0,0,0, .3);
+    --header-gradient-end: rgba(0,0,0, .6);
+    --heading-line-color: var(--accent-color);
 }
+
+body.light-mode {
+    /* Light Mode Colors */
+    --primary-bg: #f5f5f5;
+    --secondary-bg: #ffffff;
+    --primary-text: #121212;
+    --secondary-text: #333333;
+    --accent-color: #d81b60; /* Slightly different pink for light mode */
+    --border-color: 1px solid rgba(0, 0, 0, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --header-gradient-start: rgba(255,255,255, .3);
+    --header-gradient-end: rgba(255,255,255, .6);
+    --heading-line-color: var(--accent-color);
+}
+
 
 html {
     font-size: 62.5%; /* (16/10)*100 = 62.5% => 1rem = 10px */
@@ -56,7 +68,7 @@ html {
 
 @media(max-width: 1000px) {
     html {
-        font-size: 55%; /* Adjusted for better scaling */
+        font-size: 55%;
     }
 }
 
@@ -64,16 +76,17 @@ body {
     font-size: var(--font-size-small);
     font-family: var(--font-stack);
     font-weight: 400;
-    color: var(--white-1);
+    color: var(--secondary-text);
     line-height: var(--line-height-normal);
-    background: var(--black);
+    background: var(--primary-bg);
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme change */
 }
 
 .row {
     max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0 var(--gutter-normal); /* Consistent padding */
+    padding: 0 var(--gutter-normal);
 }
 
 @media(max-width: 1340px) {
@@ -102,7 +115,7 @@ body {
 
 section {
     padding: var(--gutter-huge) 0;
-    border-bottom: var(--border-light);
+    border-bottom: var(--border-color);
 }
 
 img {
@@ -120,35 +133,37 @@ h3 {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
     line-height: var(--line-height-small);
-    color: var(--white);
+    color: var(--primary-text);
+    transition: color 0.3s ease; /* Smooth transition for theme change */
 }
 
 .heading-primary {
-    line-height: 1.1; /* Adjusted for better readability */
+    line-height: 1.1;
     font-size: var(--font-size-huge);
     font-weight: 400;
-    margin-bottom: var(--gutter-small); /* Added spacing */
+    margin-bottom: var(--gutter-small);
 }
 
 @media(max-width: 900px) {
     .heading-primary {
-        font-size: 5.5rem; /* Adjusted for smaller screens */
+        font-size: 5.5rem;
     }
 }
 
 h2 {
     font-size: var(--font-size-large);
-    margin-bottom: var(--gutter-normal); /* Adjusted spacing */
-    text-align: center; /* Centered for a cleaner look */
+    margin-bottom: var(--gutter-normal);
+    text-align: center;
 }
 
     h2::after {
         content: '';
         display: block;
         height: 2px;
-        width: 8rem; /* Slightly shorter line */
-        background: var(--pink);
-        margin: var(--gutter-small) auto; /* Centered line */
+        width: 8rem;
+        background: var(--heading-line-color);
+        margin: var(--gutter-small) auto;
+        transition: background-color 0.3s ease; /* Smooth transition for theme change */
     }
 
 h3 {
@@ -187,10 +202,10 @@ p {
 /* --------------------------------------- */
 
 a {
-    color: var(--white);
+    color: var(--primary-text);
     font-weight: 400;
     font-family: 'Jost', sans-serif;
-    transition: all .2s ease-in-out; /* Smoother transition */
+    transition: all .2s ease-in-out;
     outline: 2px solid transparent;
 }
 
@@ -200,8 +215,8 @@ a {
 
 button:focus,
 a:focus {
-    outline: 2px solid var(--pink);
-    outline-offset: 2px; /* Add some offset to the outline */
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
 body:not(.user-is-tabbing) button:focus,
@@ -210,18 +225,18 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .link:hover {
-    color: var(--pink);
+    color: var(--accent-color);
 }
 
 .btn {
     position: relative;
     display: inline-block;
-    padding: 1.2rem 4.5rem; /* Slightly more padding */
+    padding: 1.2rem 4.5rem;
     text-decoration: none;
     color: inherit;
-    border: 1px solid var(--pink);
+    border: 1px solid var(--accent-color);
     font-weight: 400;
-    overflow: hidden; /* Hide overflow for the ::after animation */
+    overflow: hidden;
 }
 
     .btn:focus {
@@ -236,37 +251,37 @@ body:not(.user-is-tabbing) a:focus {
         left: 0;
         width: 100%;
         height: 100%;
-        background: var(--pink);
+        background: var(--accent-color);
         z-index: -1;
-        transform: translateX(-100%); /* Start off-screen to the left */
-        transition: transform 0.3s ease-in-out; /* Smooth slide effect */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
     }
 
     .btn:hover::after,
     .btn:focus::after {
-        transform: translateX(0); /* Slide in */
+        transform: translateX(0);
     }
 
     .btn:hover,
     .btn:focus {
-        color: var(--white); /* Ensure text color remains white on hover/focus */
+        color: var(--primary-text);
     }
 
 .btn--pink {
-    background: var(--pink);
-    border-color: var(--pink); /* Ensure border color matches */
-    color: var(--white);
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--primary-text);
     transition: all 0.2s ease-in-out;
 }
 
     .btn--pink::after {
-        display: none; /* No slide effect for solid pink button */
+        display: none;
     }
 
     .btn--pink:hover,
     .btn--pink:focus {
         background: transparent;
-        color: var(--pink); /* Text turns pink on hover */
+        color: var(--accent-color);
     }
 
 .link__text {
@@ -275,22 +290,22 @@ body:not(.user-is-tabbing) a:focus {
     padding: .6rem;
     color: inherit;
     text-decoration: none;
-    border-bottom: 1px solid var(--pink);
-    overflow: hidden; /* Hide overflow for the ::after animation */
+    border-bottom: 1px solid var(--accent-color);
+    overflow: hidden;
 }
 
     .link__text::after {
         content: '';
         display: block;
         position: absolute;
-        bottom: 0; /* Changed to bottom to avoid affecting text height */
+        bottom: 0;
         left: 0;
         width: 100%;
-        height: 2px; /* Thin underline effect */
-        background: var(--pink);
+        height: 2px;
+        background: var(--accent-color);
         z-index: -1;
-        transform: translateX(-100%); /* Start off-screen to the left */
-        transition: transform 0.3s ease-in-out; /* Smooth slide effect */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
     }
 
     .link__text:focus {
@@ -299,7 +314,7 @@ body:not(.user-is-tabbing) a:focus {
 
         .link__text:hover::after,
         .link__text:focus:after {
-            transform: translateX(0); /* Slide in */
+            transform: translateX(0);
         }
 
     .link__text span {
@@ -311,19 +326,19 @@ body:not(.user-is-tabbing) a:focus {
 
 .back-to-top {
     position: fixed;
-    bottom: 3rem; /* Slightly reduced distance from bottom */
-    right: 3rem; /* Slightly reduced distance from right */
+    bottom: 3rem;
+    right: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5rem; /* Slightly smaller */
-    width: 5rem; /* Slightly smaller */
-    background-color: var(--pink);
+    height: 5rem;
+    width: 5rem;
+    background-color: var(--accent-color);
     border-radius: 50%;
     z-index: 10;
     visibility: hidden;
-    opacity: 0; /* Added for fade effect */
-    transition: all .3s ease-in-out; /* Smoother transition */
+    opacity: 0;
+    transition: all .3s ease-in-out;
 }
 
     .back-to-top.show {
@@ -332,7 +347,7 @@ body:not(.user-is-tabbing) a:focus {
     }
 
 .back-to-top__image {
-    height: 60%; /* Adjusted size */
+    height: 60%;
     width: 60%;
 }
 
@@ -358,19 +373,19 @@ body:not(.user-is-tabbing) a:focus {
 
 .nav {
     display: flex;
-    justify-content: center; /* Centered navigation */
+    justify-content: center;
     padding: var(--gutter-normal) 0;
 }
 
 .nav__items {
     display: flex;
     list-style: none;
-    flex-wrap: wrap; /* Allow items to wrap */
-    justify-content: center; /* Center items if they wrap */
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .nav__item:not(:last-child) {
-    margin-right: var(--gutter-normal); /* Adjusted spacing */
+    margin-right: var(--gutter-normal);
 }
 
 @media(max-width: 500px) {
@@ -379,7 +394,7 @@ body:not(.user-is-tabbing) a:focus {
     }
 
     .nav__item {
-        margin: 0.5rem 1rem; /* More compact on small screens */
+        margin: 0.5rem 1rem;
     }
 
         .nav__item:not(:last-child) {
@@ -415,20 +430,20 @@ body:not(.user-is-tabbing) a:focus {
         left: 0;
         width: 100%;
         display: inline-block;
-        height: 2px; /* Thinner underline */
-        background: var(--pink);
-        transform: scaleX(0); /* Start hidden */
-        transform-origin: bottom right; /* Animate from right to left */
+        height: 2px;
+        background: var(--accent-color);
+        transform: scaleX(0);
+        transform-origin: bottom right;
         transition: transform 0.25s ease-out;
     }
 
     .nav__link:hover {
-        color: var(--pink);
+        color: var(--accent-color);
     }
 
         .nav__link:hover::after {
-            transform: scaleX(1); /* Reveal underline */
-            transform-origin: bottom left; /* Animate from left to right */
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
 
 /* --------------------------------------- */
@@ -436,7 +451,7 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .header {
-    background: linear-gradient(rgba(0,0,0, .3), rgba(0,0,0, .6)), url('../images/header.jpg') no-repeat center center/cover; /* Reinstated background image with darker overlay */
+    background: linear-gradient(var(--header-gradient-start), var(--header-gradient-end)), url('../images/header.jpg') no-repeat center center/cover;
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -446,7 +461,7 @@ body:not(.user-is-tabbing) a:focus {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5); /* Subtle text shadow for readability */
+    text-shadow: 0 0 10px var(--shadow-color);
 }
 
 .header__text-box {
@@ -461,24 +476,24 @@ body:not(.user-is-tabbing) a:focus {
 }
 
     .header__text p {
-        margin: 1.5rem auto 3.5rem; /* Centered paragraph */
+        margin: 1.5rem auto 3.5rem;
         max-width: var(--container-medium-width);
         font-family: 'Jost', sans-serif;
         font-size: var(--font-size-medium);
-        color: var(--white-1); /* Ensure good contrast */
+        color: var(--secondary-text);
     }
 
     .header__text .btn {
-        margin: 0.8rem; /* Space out multiple buttons */
+        margin: 0.8rem;
     }
 
-@media(max-width: 768px) { /* Adjusted breakpoint for header text */
+@media(max-width: 768px) {
     .header__text p {
         font-size: var(--font-size-normal);
     }
 
     .header__text .btn {
-        display: block; /* Stack buttons on smaller screens */
+        display: block;
         margin: 1rem auto;
     }
 }
@@ -489,7 +504,7 @@ body:not(.user-is-tabbing) a:focus {
     }
 
     .header__text p {
-        transform: none; /* Removed scaling for simplicity */
+        transform: none;
     }
 }
 
@@ -499,7 +514,7 @@ body:not(.user-is-tabbing) a:focus {
 
 .work__boxes {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly smaller min width for more flexibility */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--gutter-normal);
     justify-content: center;
 }
@@ -509,27 +524,27 @@ body:not(.user-is-tabbing) a:focus {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border: 1px solid var(--border-light); /* Softer border */
+    border: var(--border-color);
     padding: var(--gutter-normal);
-    border-radius: 8px; /* Slightly more rounded corners */
-    background-color: #1a1a1a;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Added transitions */
+    border-radius: 8px;
+    background-color: var(--secondary-bg);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease;
 }
 
     .work__box:hover {
-        transform: translateY(-5px); /* Lift effect on hover */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px var(--shadow-color);
     }
 
 .work__text {
     flex: 1;
     width: 100%;
-    margin-bottom: var(--gutter-small); /* Added space below text */
+    margin-bottom: var(--gutter-small);
 }
 
     .work__text h3 {
-        margin-bottom: 1rem; /* Adjusted spacing */
+        margin-bottom: 1rem;
     }
 
 .work__list {
@@ -538,7 +553,7 @@ body:not(.user-is-tabbing) a:focus {
     margin-bottom: var(--gutter-normal);
     text-align: left;
     padding-left: 20px;
-    color: var(--white-1); /* Ensure good readability */
+    color: var(--secondary-text);
 }
 
     .work__list li {
@@ -548,18 +563,18 @@ body:not(.user-is-tabbing) a:focus {
 .work__code {
     display: block;
     height: 3rem;
-    margin-left: var(--gutter-small); /* Adjusted spacing */
+    margin-left: var(--gutter-small);
     transition: all .3s;
 }
 
     .work__code:hover {
-        transform: scale(1.1); /* Slightly less aggressive scale */
+        transform: scale(1.1);
     }
 
 .work__image-box {
     margin-top: var(--gutter-normal);
     width: 100%;
-    max-height: 280px; /* Slightly increased max height for images/videos */
+    max-height: 280px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -567,8 +582,8 @@ body:not(.user-is-tabbing) a:focus {
     position: relative;
     padding-bottom: 56.25%;
     height: 0;
-    border-radius: 4px; /* Rounded corners for image/video boxes */
-    background-color: #000; /* Black background for video placeholders */
+    border-radius: 4px;
+    background-color: var(--primary-bg); /* Use primary background for consistent look */
 }
 
     .work__image-box iframe,
@@ -578,12 +593,12 @@ body:not(.user-is-tabbing) a:focus {
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Cover ensures the image/video fills the box */
+        object-fit: cover;
     }
     /* Specific adjustments for images to maintain aspect ratio without stretching */
     .work__image-box img {
-        object-fit: contain; /* Revert to contain for images to prevent cropping */
-        padding: 1rem; /* Add some padding if image is smaller than box */
+        object-fit: contain;
+        padding: 1rem;
     }
 
 
@@ -595,20 +610,20 @@ body:not(.user-is-tabbing) a:focus {
     justify-content: center;
     flex-wrap: wrap;
     gap: var(--gutter-normal);
-    padding-top: var(--gutter-normal); /* Add padding for separation */
+    padding-top: var(--gutter-normal);
 }
 
 .client__logo {
-    height: 12rem; /* Slightly smaller logo size */
+    height: 12rem;
     width: auto;
     max-width: 100%;
-    filter: grayscale(100%) brightness(150%); /* Desaturate and brighten for a sleek look */
-    opacity: 0.7; /* Subtle transparency */
+    filter: grayscale(100%) brightness(150%);
+    opacity: 0.7;
     transition: all 0.3s ease-in-out;
 }
 
     .client__logo:hover {
-        filter: grayscale(0%) brightness(100%); /* Full color on hover */
+        filter: grayscale(0%) brightness(100%);
         opacity: 1;
     }
 
@@ -621,26 +636,26 @@ body:not(.user-is-tabbing) a:focus {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    gap: var(--gutter-medium); /* Added gap for spacing between text and photo */
+    gap: var(--gutter-medium);
 }
 
 @media(max-width: 900px) {
     .about__content {
         flex-direction: column-reverse;
-        align-items: center; /* Centered items in column layout */
+        align-items: center;
     }
 }
 
 .about__photo-container {
     margin-bottom: var(--gutter-normal);
-    max-width: 400px; /* Constrain photo size */
-    border-radius: 8px; /* Rounded corners for photo */
-    overflow: hidden; /* Ensure rounded corners clip content */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
 
     .about__photo-container img {
-        display: block; /* Remove extra space below image */
+        display: block;
         width: 100%;
         height: auto;
     }
@@ -648,12 +663,12 @@ body:not(.user-is-tabbing) a:focus {
 
 @media(min-width: 901px) {
     .about__text {
-        flex: 0 0 45%; /* Increased text width slightly */
+        flex: 0 0 45%;
     }
 
     .about__photo-container {
         flex: 1;
-        margin: 0; /* Remove specific margins, rely on gap */
+        margin: 0;
     }
 }
 
@@ -662,44 +677,45 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .contact__info {
-    max-width: var(--container-normal-width); /* Slightly wider for contact info */
+    max-width: var(--container-normal-width);
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    padding: var(--gutter-normal); /* Add padding */
-    border: 1px solid var(--border-light); /* Subtle border */
-    border-radius: 8px; /* Rounded corners */
-    background-color: #1a1a1a;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: var(--gutter-normal);
+    border: var(--border-color);
+    border-radius: 8px;
+    background-color: var(--secondary-bg);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
     .contact__info h4 {
-        margin-top: var(--gutter-small); /* Space above 'Linkler' */
-        color: var(--pink); /* Highlight 'Linkler' */
+        margin-top: var(--gutter-small);
+        color: var(--accent-color);
     }
 
     .contact__info .work__list {
         text-align: center;
-        list-style-position: inside; /* Kept inside for better centering */
+        list-style-position: inside;
         padding-left: 0;
         width: fit-content;
         margin-left: auto;
         margin-right: auto;
-        list-style-type: none; /* Remove bullet points for links */
+        list-style-type: none;
     }
 
         .contact__info .work__list li {
-            margin-bottom: 0.8rem; /* Space out list items */
+            margin-bottom: 0.8rem;
         }
 
             .contact__info .work__list li a {
                 display: inline-block;
-                margin: 0 8px; /* More space between links */
-                font-size: var(--font-size-normal); /* Slightly larger font for links */
+                margin: 0 8px;
+                font-size: var(--font-size-normal);
             }
 
     .contact__info .btn {
-        margin-top: var(--gutter-normal); /* Space above contact button */
+        margin-top: var(--gutter-normal);
     }
 
 /* --------------------------------------- */
@@ -709,7 +725,8 @@ body:not(.user-is-tabbing) a:focus {
 .footer {
     text-align: center;
     padding: var(--gutter-medium) 0 var(--gutter-normal);
-    border-top: var(--border-light); /* Add a border to the top of the footer */
+    border-top: var(--border-color);
+    transition: border-color 0.3s ease;
 }
 
 .footer__social-links {
@@ -724,18 +741,18 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .footer__social-image {
-    height: 3.5rem; /* Slightly smaller social icons */
+    height: 3.5rem;
     transition: transform 0.2s ease-in-out;
 }
 
     .footer__social-image:hover {
-        transform: translateY(-3px) scale(1.1); /* Subtle lift and scale */
+        transform: translateY(-3px) scale(1.1);
     }
 
 .footer__github-buttons {
     display: flex;
     justify-content: center;
-    margin-top: var(--gutter-small); /* Space above github buttons */
+    margin-top: var(--gutter-small);
 }
 
     .footer__github-buttons iframe {
@@ -748,4 +765,50 @@ body:not(.user-is-tabbing) a:focus {
     .footer {
         padding: var(--gutter-normal) 0;
     }
+}
+
+/* --------------------------------------- */
+/* ----- Dark/Light Mode Switch ----- */
+/* --------------------------------------- */
+.mode-switch-container {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.mode-switch {
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5rem;
+    width: 6rem;
+    height: 3rem;
+    position: relative;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.mode-switch-icon {
+    font-size: 1.6rem;
+    color: var(--secondary-text);
+    transition: color 0.3s ease;
+}
+
+.mode-switch .slider {
+    background-color: var(--accent-color);
+    position: absolute;
+    left: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+body.light-mode .mode-switch .slider {
+    transform: translateX(3rem);
 }
