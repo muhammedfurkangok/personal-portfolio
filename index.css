@@ -1,52 +1,3 @@
-I can help you adjust the layout and styling of your portfolio. I will make the following changes:
-
-1. **Uniform Showcase Box Sizes**: All showcase boxes will have a more consistent visual height, particularly their image and video sections. Images and videos will now fill their designated space, potentially cropping some content if their original aspect ratio is very different.
-2. **Two Boxes Per Row Layout**: The layout for larger screens will clearly display two showcase boxes per row, with appropriate spacing.
-3. **Top Navigation Bar**: The navigation links will be moved to a distinct top bar that is fixed at the top of the page, improving their readability and accessibility. The main content will start below this fixed navigation bar.
-
-Here are the specific changes to `index.html` and `index.css`:
-
-### `github-portfolio/index.html`
-
-I will move the `<nav > ` element out of the `<header > ` and place it directly after the `<body > ` tag.
-
-```html
-<body >
-<nav class="nav" role="navigation" >
-<ul class="nav__items" >
-<li class="nav__item" > <a href="#home" class="nav__link" > Home</a > </li >
-<li class="nav__item" > <a href="#pc-games" class="nav__link" > PC Games</a > </li >
-<li class="nav__item" > <a href="#mobile-games" class="nav__link" > Mobile Games</a > </li >
-<li class="nav__item" > <a href="#cpp-projects" class="nav__link" > C + + Projects</a > </li >
-<li class="nav__item" > <a href="#unity-systems" class="nav__link" > Unity Systems</a > </li >
-<li class="nav__item" >
-<a href="#about-contact" class="nav__link" > About / Contact</a >
-</li >
-</ul >
-</nav >
-
-<header class="header" role="banner" id="home" >
-<div class="header__text-box row" >
-<div class="header__text" >
-<h1 class="heading-primary" >
-<span > Hi, I’m Furkan – a game developer specialized in Unity, C + +, and mobile game development.</span >
-</h1 >
-<a href="#pc-games" class="btn btn--pink" > Check out my latest PC games →</a >
-<a href="#mobile-games" class="btn btn--pink" > Explore my mobile projects →</a >
-<a href="#cpp-projects" class="btn btn--pink" > See my C + + engine work →</a >
-</div >
-</div >
-</header >
-
-<main role="main" >
-</main >
-```
-
-### `github-portfolio/index.css`
-
-I will update the CSS to implement the new layout and styling.
-
-```css
 /* --------------------------------------- */
 /* ----- Basic Setup ----- */
 /* --------------------------------------- */
@@ -900,5 +851,3 @@ body:not(.user-is-tabbing) a:focus {
 body.light-mode .mode-switch .slider {
     transform: translateX(3rem);
 }
-
-```
