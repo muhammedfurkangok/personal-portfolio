@@ -1,7 +1,55 @@
+I can help you adjust the layout and styling of your portfolio. I will make the following changes:
+
+1. **Uniform Showcase Box Sizes**: All showcase boxes will have a more consistent visual height, particularly their image and video sections. Images and videos will now fill their designated space, potentially cropping some content if their original aspect ratio is very different.
+2. **Two Boxes Per Row Layout**: The layout for larger screens will clearly display two showcase boxes per row, with appropriate spacing.
+3. **Top Navigation Bar**: The navigation links will be moved to a distinct top bar that is fixed at the top of the page, improving their readability and accessibility. The main content will start below this fixed navigation bar.
+
+Here are the specific changes to `index.html` and `index.css`:
+
+### `github-portfolio/index.html`
+
+I will move the `<nav > ` element out of the `<header > ` and place it directly after the `<body > ` tag.
+
+```html
+<body >
+<nav class="nav" role="navigation" >
+<ul class="nav__items" >
+<li class="nav__item" > <a href="#home" class="nav__link" > Home</a > </li >
+<li class="nav__item" > <a href="#pc-games" class="nav__link" > PC Games</a > </li >
+<li class="nav__item" > <a href="#mobile-games" class="nav__link" > Mobile Games</a > </li >
+<li class="nav__item" > <a href="#cpp-projects" class="nav__link" > C + + Projects</a > </li >
+<li class="nav__item" > <a href="#unity-systems" class="nav__link" > Unity Systems</a > </li >
+<li class="nav__item" >
+<a href="#about-contact" class="nav__link" > About / Contact</a >
+</li >
+</ul >
+</nav >
+
+<header class="header" role="banner" id="home" >
+<div class="header__text-box row" >
+<div class="header__text" >
+<h1 class="heading-primary" >
+<span > Hi, I’m Furkan – a game developer specialized in Unity, C + +, and mobile game development.</span >
+</h1 >
+<a href="#pc-games" class="btn btn--pink" > Check out my latest PC games →</a >
+<a href="#mobile-games" class="btn btn--pink" > Explore my mobile projects →</a >
+<a href="#cpp-projects" class="btn btn--pink" > See my C + + engine work →</a >
+</div >
+</div >
+</header >
+
+<main role="main" >
+</main >
+```
+
+### `github-portfolio/index.css`
+
+I will update the CSS to implement the new layout and styling.
+
+```css
 /* --------------------------------------- */
 /* ----- Basic Setup ----- */
 /* --------------------------------------- */
-
 @font-face {
     font-family: 'Hk Grotesk';
     font-style: normal;
@@ -81,6 +129,7 @@ body {
     background: var(--primary-bg);
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme change */
+    padding-top: 8rem; /* Added: Pushes content down to clear fixed navigation bar */
 }
 
 .row {
@@ -372,9 +421,16 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .nav {
-    display: flex;
-    justify-content: center;
-    padding: var(--gutter-normal) 0;
+    position: fixed; /* Added: Make navigation bar fixed */
+    top: 0; /* Added: Position at the top */
+    left: 0; /* Added: Position at the left */
+    width: 100%; /* Added: Full width */
+    background-color: var(--secondary-bg); /* Added: Solid background */
+    box-shadow: 0 2px 5px var(--shadow-color); /* Added: Subtle shadow */
+    z-index: 100; /* Added: Ensure it's on top */
+    padding: 1.5rem 0; /* Adjusted: Increased vertical padding */
+    display: flex; /* Kept existing flex properties */
+    justify-content: center; /* Kept existing flex properties */
 }
 
 .nav__items {
@@ -382,6 +438,9 @@ body:not(.user-is-tabbing) a:focus {
     list-style: none;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: var(--container-max-width); /* Added: Apply row max-width */
+    margin: 0 auto; /* Added: Center items within the row */
+    padding: 0 var(--gutter-normal); /* Added: Horizontal padding for items */
 }
 
 .nav__item:not(:last-child) {
@@ -463,16 +522,10 @@ body:not(.user-is-tabbing) a:focus {
     justify-content: space-between; /* Pushes nav to top, text-box to middle, if other content below */
     align-items: center; /* Center horizontally */
     text-shadow: 0 0 10px var(--shadow-color);
-    padding-top: var(--gutter-normal); /* Add padding to the top for the nav */
-    padding-bottom: var(--gutter-normal); /* Add padding to the bottom */
+    /* Removed padding-top and padding-bottom from header */
 }
 
-    .header .row:first-child { /* Targets the row containing the nav */
-        width: 100%; /* Ensure nav row takes full width */
-        max-width: var(--container-max-width);
-        margin: 0 auto;
-        padding: 0 var(--gutter-normal);
-    }
+/* Removed .header .row:first-child rule as nav is no longer a child of header */
 
 
 .header__text-box {
@@ -598,8 +651,7 @@ body:not(.user-is-tabbing) a:focus {
 .work__image-box {
     margin-top: 0; /* Remove top margin */
     width: 100%;
-    /* Removed padding-bottom and height:0 to let content define height */
-    max-height: 250px; /* Max height for images/videos */
+    height: 200px; /* Adjusted: Fixed height for consistent image/video area */
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -611,19 +663,21 @@ body:not(.user-is-tabbing) a:focus {
 
     .work__image-box iframe,
     .work__image-box img {
-        position: static; /* Change from absolute to static */
-        width: auto; /* Let content define width */
-        height: auto; /* Let content define height */
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain; /* Ensure the image/video fits within the box without cropping */
-        display: block; /* Remove extra space below image/iframe */
+        position: absolute; /* Adjusted: Position children absolutely to fill the parent */
+        width: 100%; /* Adjusted: Fill 100% width */
+        height: 100%; /* Adjusted: Fill 100% height */
+        object-fit: cover; /* Adjusted: Cover the container, potentially cropping */
+        display: block; /* Removed extra space below image/iframe */
+        top: 0; /* Added: Align to top */
+        left: 0; /* Added: Align to left */
     }
     /* Specific adjustments for video iframes to maintain aspect ratio */
     .work__image-box.video-container {
-        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-        height: 0;
-        position: relative;
+        /* Removed padding-bottom: 56.25%; */
+        /* Removed height: 0; */
+        /* Removed position: relative; */
+        width: 100%; /* Added: Ensure video container fills its parent */
+        height: 100%; /* Added: Ensure video container fills its parent */
     }
 
         .work__image-box.video-container iframe {
@@ -632,6 +686,7 @@ body:not(.user-is-tabbing) a:focus {
             left: 0;
             width: 100%;
             height: 100%;
+            object-fit: cover; /* Added: Ensure iframe covers its container */
         }
 
 
@@ -845,3 +900,5 @@ body:not(.user-is-tabbing) a:focus {
 body.light-mode .mode-switch .slider {
     transform: translateX(3rem);
 }
+
+```
