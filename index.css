@@ -23,29 +23,29 @@
 }
 
 :root {
-    --font-size-small: 1.8rem;
-    --font-size-normal: 2.2rem;
-    --font-size-medium: 2.8rem;
-    --font-size-medium-1: 3.6rem;
-    --font-size-large: 5.5rem;
-    --font-size-huge: 7.5rem;
+    --font-size-small: 1.6rem; /* Slightly smaller for a cleaner look */
+    --font-size-normal: 2rem;
+    --font-size-medium: 2.6rem;
+    --font-size-medium-1: 3.2rem;
+    --font-size-large: 4.8rem; /* Reduced for less visual weight */
+    --font-size-huge: 6.8rem; /* Reduced for less visual weight */
     --font-stack: 'Hk Grotesk', sans-serif;
-    --line-height-normal: 1.7;
-    --line-height-small: 1.2;
-    --black: #000;
-    --pink: #ff3258;
-    --white: #f0e9f2;
-    --white-1: #e5e5e6da;
-    --container-max-width: 1180px;
-    --container-normal-width: 800px;
-    --container-medium-width: 700px;
-    --container-small-width: 500px;
-    --gutter-huge: 12rem;
-    --gutter-medium: 6rem;
-    --gutter-normal: 3rem;
-    --gutter-small-1: 2.5rem;
-    --gutter-small: 2rem;
-    --border-light: 1px solid rgb(36, 35, 35);
+    --line-height-normal: 1.6; /* Slightly tighter line height */
+    --line-height-small: 1.1;
+    --black: #121212; /* Slightly softer black */
+    --pink: #ff4081; /* Slightly brighter pink for better contrast */
+    --white: #f5f5f5; /* Slightly brighter white */
+    --white-1: #e0e0e0; /* Slightly brighter off-white */
+    --container-max-width: 1200px; /* Slightly increased max-width */
+    --container-normal-width: 850px;
+    --container-medium-width: 750px;
+    --container-small-width: 550px;
+    --gutter-huge: 10rem; /* Reduced spacing */
+    --gutter-medium: 5rem; /* Reduced spacing */
+    --gutter-normal: 2.5rem; /* Reduced spacing */
+    --gutter-small-1: 2rem;
+    --gutter-small: 1.5rem;
+    --border-light: 1px solid rgba(255, 255, 255, 0.1); /* Softer border */
 }
 
 html {
@@ -56,7 +56,7 @@ html {
 
 @media(max-width: 1000px) {
     html {
-        font-size: 52%;
+        font-size: 55%; /* Adjusted for better scaling */
     }
 }
 
@@ -73,6 +73,7 @@ body {
 .row {
     max-width: var(--container-max-width);
     margin: 0 auto;
+    padding: 0 var(--gutter-normal); /* Consistent padding */
 }
 
 @media(max-width: 1340px) {
@@ -123,29 +124,31 @@ h3 {
 }
 
 .heading-primary {
-    line-height: 1;
+    line-height: 1.1; /* Adjusted for better readability */
     font-size: var(--font-size-huge);
     font-weight: 400;
+    margin-bottom: var(--gutter-small); /* Added spacing */
 }
 
 @media(max-width: 900px) {
     .heading-primary {
-        font-size: 6.5rem;
+        font-size: 5.5rem; /* Adjusted for smaller screens */
     }
 }
 
 h2 {
     font-size: var(--font-size-large);
-    margin-bottom: var(--gutter-medium);
+    margin-bottom: var(--gutter-normal); /* Adjusted spacing */
+    text-align: center; /* Centered for a cleaner look */
 }
 
     h2::after {
         content: '';
         display: block;
         height: 2px;
-        width: 10rem;
+        width: 8rem; /* Slightly shorter line */
         background: var(--pink);
-        margin: var(--gutter-small) 0;
+        margin: var(--gutter-small) auto; /* Centered line */
     }
 
 h3 {
@@ -174,6 +177,8 @@ p {
 @media(max-width: 900px) {
     p {
         max-width: var(--container-small-width);
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -185,7 +190,7 @@ a {
     color: var(--white);
     font-weight: 400;
     font-family: 'Jost', sans-serif;
-    transition: all .2s;
+    transition: all .2s ease-in-out; /* Smoother transition */
     outline: 2px solid transparent;
 }
 
@@ -196,6 +201,7 @@ a {
 button:focus,
 a:focus {
     outline: 2px solid var(--pink);
+    outline-offset: 2px; /* Add some offset to the outline */
 }
 
 body:not(.user-is-tabbing) button:focus,
@@ -210,11 +216,12 @@ body:not(.user-is-tabbing) a:focus {
 .btn {
     position: relative;
     display: inline-block;
-    padding: 1rem 4.2rem;
+    padding: 1.2rem 4.5rem; /* Slightly more padding */
     text-decoration: none;
     color: inherit;
     border: 1px solid var(--pink);
     font-weight: 400;
+    overflow: hidden; /* Hide overflow for the ::after animation */
 }
 
     .btn:focus {
@@ -227,31 +234,39 @@ body:not(.user-is-tabbing) a:focus {
         position: absolute;
         top: 0;
         left: 0;
-        right: 100%;
-        background: var(--white);
+        width: 100%;
         height: 100%;
+        background: var(--pink);
         z-index: -1;
-        transition: all 0.2s cubic-bezier(1, 0.68, 0.16, 0.9);
+        transform: translateX(-100%); /* Start off-screen to the left */
+        transition: transform 0.3s ease-in-out; /* Smooth slide effect */
     }
 
     .btn:hover::after,
     .btn:focus::after {
-        right: 0;
-        background: var(--pink);
+        transform: translateX(0); /* Slide in */
+    }
+
+    .btn:hover,
+    .btn:focus {
+        color: var(--white); /* Ensure text color remains white on hover/focus */
     }
 
 .btn--pink {
     background: var(--pink);
-    transition: all 0.2s;
+    border-color: var(--pink); /* Ensure border color matches */
+    color: var(--white);
+    transition: all 0.2s ease-in-out;
 }
 
     .btn--pink::after {
-        display: none;
+        display: none; /* No slide effect for solid pink button */
     }
 
     .btn--pink:hover,
     .btn--pink:focus {
         background: transparent;
+        color: var(--pink); /* Text turns pink on hover */
     }
 
 .link__text {
@@ -261,19 +276,21 @@ body:not(.user-is-tabbing) a:focus {
     color: inherit;
     text-decoration: none;
     border-bottom: 1px solid var(--pink);
+    overflow: hidden; /* Hide overflow for the ::after animation */
 }
 
     .link__text::after {
         content: '';
         display: block;
         position: absolute;
-        top: 0;
+        bottom: 0; /* Changed to bottom to avoid affecting text height */
         left: 0;
-        right: 100%;
-        background: var(--white);
-        height: 100%;
+        width: 100%;
+        height: 2px; /* Thin underline effect */
+        background: var(--pink);
         z-index: -1;
-        transition: all 0.2s cubic-bezier(1, 0.68, 0.16, 0.9);
+        transform: translateX(-100%); /* Start off-screen to the left */
+        transition: transform 0.3s ease-in-out; /* Smooth slide effect */
     }
 
     .link__text:focus {
@@ -282,8 +299,7 @@ body:not(.user-is-tabbing) a:focus {
 
         .link__text:hover::after,
         .link__text:focus:after {
-            right: 0;
-            background: var(--pink);
+            transform: translateX(0); /* Slide in */
         }
 
     .link__text span {
@@ -295,33 +311,44 @@ body:not(.user-is-tabbing) a:focus {
 
 .back-to-top {
     position: fixed;
-    bottom: 4rem;
-    right: 4rem;
+    bottom: 3rem; /* Slightly reduced distance from bottom */
+    right: 3rem; /* Slightly reduced distance from right */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5.5rem;
-    width: 5.5rem;
+    height: 5rem; /* Slightly smaller */
+    width: 5rem; /* Slightly smaller */
     background-color: var(--pink);
     border-radius: 50%;
     z-index: 10;
     visibility: hidden;
-    transition: all .4s;
+    opacity: 0; /* Added for fade effect */
+    transition: all .3s ease-in-out; /* Smoother transition */
 }
 
+    .back-to-top.show {
+        visibility: visible;
+        opacity: 1;
+    }
+
 .back-to-top__image {
-    height: 70%;
+    height: 60%; /* Adjusted size */
+    width: 60%;
 }
 
 @media(max-width: 900px) {
     .back-to-top {
         right: 2rem;
+        bottom: 2rem;
     }
 }
 
 @media(max-width: 500px) {
     .back-to-top {
-        right: 1rem;
+        right: 1.5rem;
+        bottom: 1.5rem;
+        height: 4rem;
+        width: 4rem;
     }
 }
 
@@ -331,28 +358,38 @@ body:not(.user-is-tabbing) a:focus {
 
 .nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center; /* Centered navigation */
     padding: var(--gutter-normal) 0;
 }
 
 .nav__items {
     display: flex;
     list-style: none;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center items if they wrap */
 }
 
 .nav__item:not(:last-child) {
-    margin-right: var(--gutter-medium);
+    margin-right: var(--gutter-normal); /* Adjusted spacing */
 }
 
 @media(max-width: 500px) {
     .nav {
         justify-content: center;
     }
+
+    .nav__item {
+        margin: 0.5rem 1rem; /* More compact on small screens */
+    }
+
+        .nav__item:not(:last-child) {
+            margin-right: 1rem;
+        }
 }
 
 @media(max-width: 400px) {
     .nav__item:not(:last-child) {
-        margin-right: var(--gutter-normal);
+        margin-right: var(--gutter-small);
     }
 }
 
@@ -368,7 +405,7 @@ body:not(.user-is-tabbing) a:focus {
     padding: 1rem 0;
     text-decoration: none;
     color: inherit;
-    transition: all .2s;
+    transition: all .2s ease-in-out;
 }
 
     .nav__link::after {
@@ -376,11 +413,13 @@ body:not(.user-is-tabbing) a:focus {
         position: absolute;
         bottom: 0;
         left: 0;
-        right: 100%;
+        width: 100%;
         display: inline-block;
-        height: 1rem;
-        background: var(--white);
-        transition: all 0.25s cubic-bezier(1, 0.68, 0.16, 0.9);
+        height: 2px; /* Thinner underline */
+        background: var(--pink);
+        transform: scaleX(0); /* Start hidden */
+        transform-origin: bottom right; /* Animate from right to left */
+        transition: transform 0.25s ease-out;
     }
 
     .nav__link:hover {
@@ -388,9 +427,8 @@ body:not(.user-is-tabbing) a:focus {
     }
 
         .nav__link:hover::after {
-            right: 0;
-            height: 2px;
-            background: var(--pink);
+            transform: scaleX(1); /* Reveal underline */
+            transform-origin: bottom left; /* Animate from left to right */
         }
 
 /* --------------------------------------- */
@@ -398,33 +436,52 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .header {
-    background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)); /* Arka plan resmi kaldırıldı */
+    background: linear-gradient(rgba(0,0,0, .3), rgba(0,0,0, .6)), url('../images/header.jpg') no-repeat center center/cover; /* Reinstated background image with darker overlay */
     height: 100vh;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     font-size: var(--font-size-normal);
-    display: flex; /* İçeriği ortalamak için */
-    align-items: center; /* Dikeyde ortala */
-    justify-content: center; /* Yatayda ortala */
-    flex-direction: column; /* İçeriği dikey sırala */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5); /* Subtle text shadow for readability */
+}
+
+.header__text-box {
+    text-align: center;
 }
 
 .header__text {
-    position: static; /* Absolute konumlandırma kaldırıldı */
-    transform: none; /* Dönüşüm kaldırıldı */
-    text-align: center; /* Metni ortala */
-    padding: var(--gutter-normal); /* İç boşluk ekle */
+    position: static;
+    transform: none;
+    text-align: center;
+    padding: var(--gutter-normal);
 }
 
     .header__text p {
-        margin: 1.5rem 0 3.5rem;
+        margin: 1.5rem auto 3.5rem; /* Centered paragraph */
         max-width: var(--container-medium-width);
         font-family: 'Jost', sans-serif;
         font-size: var(--font-size-medium);
-        margin-left: auto; /* Ortalamak için */
-        margin-right: auto; /* Ortalamak için */
+        color: var(--white-1); /* Ensure good contrast */
     }
+
+    .header__text .btn {
+        margin: 0.8rem; /* Space out multiple buttons */
+    }
+
+@media(max-width: 768px) { /* Adjusted breakpoint for header text */
+    .header__text p {
+        font-size: var(--font-size-normal);
+    }
+
+    .header__text .btn {
+        display: block; /* Stack buttons on smaller screens */
+        margin: 1rem auto;
+    }
+}
 
 @media(max-width: 500px) {
     .header {
@@ -432,7 +489,7 @@ body:not(.user-is-tabbing) a:focus {
     }
 
     .header__text p {
-        transform: scale(.8);
+        transform: none; /* Removed scaling for simplicity */
     }
 }
 
@@ -441,66 +498,77 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .work__boxes {
-    display: grid; /* Grid düzeni */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Esnek sütunlar */
-    gap: var(--gutter-normal); /* Kutular arası boşluk */
-    justify-content: center; /* Kutuları ortala */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly smaller min width for more flexibility */
+    gap: var(--gutter-normal);
+    justify-content: center;
 }
 
 .work__box {
     display: flex;
-    flex-direction: column; /* İçeriği dikey sırala */
-    align-items: center; /* Yatayda ortala */
-    text-align: center; /* Metni ortala */
-    border: 1px solid var(--white-1); /* Görsel ayırıcı */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--border-light); /* Softer border */
     padding: var(--gutter-normal);
-    border-radius: 5px;
-    background-color: #1a1a1a; /* Kutu arka plan rengi */
+    border-radius: 8px; /* Slightly more rounded corners */
+    background-color: #1a1a1a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Added transitions */
 }
 
-    .work__box:not(:last-child) {
-        margin-bottom: 0; /* Artık grid gap ile boşluk veriyoruz */
+    .work__box:hover {
+        transform: translateY(-5px); /* Lift effect on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     }
 
 .work__text {
-    flex: 1; /* Metin kutusunun esnek olmasını sağla */
-    width: 100%; /* Kutu içinde tam genişlik */
+    flex: 1;
+    width: 100%;
+    margin-bottom: var(--gutter-small); /* Added space below text */
 }
 
+    .work__text h3 {
+        margin-bottom: 1rem; /* Adjusted spacing */
+    }
+
 .work__list {
-    list-style-type: disc; /* Liste öğeleri için disk işareti */
-    list-style-position: inside; /* İşaretleri metnin içinde tut */
+    list-style-type: disc;
+    list-style-position: inside;
     margin-bottom: var(--gutter-normal);
-    text-align: left; /* Liste metnini sola yasla */
-    padding-left: 20px; /* Liste işaretleri için boşluk */
+    text-align: left;
+    padding-left: 20px;
+    color: var(--white-1); /* Ensure good readability */
 }
 
     .work__list li {
-        margin-bottom: 5px; /* Her madde arasında boşluk bırak */
+        margin-bottom: 5px;
     }
 
 .work__code {
     display: block;
     height: 3rem;
-    margin-left: var(--gutter-normal);
+    margin-left: var(--gutter-small); /* Adjusted spacing */
     transition: all .3s;
 }
 
     .work__code:hover {
-        transform: scale(1.2);
+        transform: scale(1.1); /* Slightly less aggressive scale */
     }
 
 .work__image-box {
-    margin-top: var(--gutter-normal); /* Resim ile metin arasına boşluk */
-    width: 100%; /* Resim kutusunun tam genişliği */
-    max-height: 250px; /* Resim yüksekliğini sınırla */
-    overflow: hidden; /* Taşmayı gizle */
+    margin-top: var(--gutter-normal);
+    width: 100%;
+    max-height: 280px; /* Slightly increased max height for images/videos */
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Video kapsayıcısı için */
-    padding-bottom: 56.25%; /* 16:9 en boy oranı (video yüksekliği için) */
+    position: relative;
+    padding-bottom: 56.25%;
     height: 0;
+    border-radius: 4px; /* Rounded corners for image/video boxes */
+    background-color: #000; /* Black background for video placeholders */
 }
 
     .work__image-box iframe,
@@ -510,26 +578,39 @@ body:not(.user-is-tabbing) a:focus {
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: contain; /* İçeriğin kutuya sığmasını sağlar */
+        object-fit: cover; /* Cover ensures the image/video fills the box */
     }
+    /* Specific adjustments for images to maintain aspect ratio without stretching */
+    .work__image-box img {
+        object-fit: contain; /* Revert to contain for images to prevent cropping */
+        padding: 1rem; /* Add some padding if image is smaller than box */
+    }
+
 
 /* --------------------------------------- */
 /* ----- Clients (Değiştirildi) ----- */
 /* --------------------------------------- */
-/* Client logos bölümü tamamen kaldırıldığı veya projeler arasına entegre edildiği için bu kısım sadeleştirildi */
-/* Eğer gelecekte benzer bir bölüm eklenirse bu stiller güncellenebilir */
 .client__logos {
     display: flex;
-    justify-content: center; /* Logoları ortala */
-    flex-wrap: wrap; /* Esnek satır düzeni */
-    gap: var(--gutter-normal); /* Logolar arası boşluk */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--gutter-normal);
+    padding-top: var(--gutter-normal); /* Add padding for separation */
 }
 
 .client__logo {
-    height: 15rem; /* Logo boyutunu ayarla */
+    height: 12rem; /* Slightly smaller logo size */
     width: auto;
     max-width: 100%;
+    filter: grayscale(100%) brightness(150%); /* Desaturate and brighten for a sleek look */
+    opacity: 0.7; /* Subtle transparency */
+    transition: all 0.3s ease-in-out;
 }
+
+    .client__logo:hover {
+        filter: grayscale(0%) brightness(100%); /* Full color on hover */
+        opacity: 1;
+    }
 
 
 /* --------------------------------------- */
@@ -540,27 +621,39 @@ body:not(.user-is-tabbing) a:focus {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    gap: var(--gutter-medium); /* Added gap for spacing between text and photo */
 }
 
 @media(max-width: 900px) {
     .about__content {
         flex-direction: column-reverse;
-        align-items: initial;
+        align-items: center; /* Centered items in column layout */
     }
 }
 
 .about__photo-container {
     margin-bottom: var(--gutter-normal);
+    max-width: 400px; /* Constrain photo size */
+    border-radius: 8px; /* Rounded corners for photo */
+    overflow: hidden; /* Ensure rounded corners clip content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+    .about__photo-container img {
+        display: block; /* Remove extra space below image */
+        width: 100%;
+        height: auto;
+    }
+
 
 @media(min-width: 901px) {
     .about__text {
-        flex: 0 0 35%;
+        flex: 0 0 45%; /* Increased text width slightly */
     }
 
     .about__photo-container {
         flex: 1;
-        margin: 0 var(--gutter-huge) 0 0;
+        margin: 0; /* Remove specific margins, rely on gap */
     }
 }
 
@@ -569,25 +662,45 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .contact__info {
-    max-width: var(--container-medium-width);
-    margin-left: auto; /* Metni ortala */
-    margin-right: auto; /* Metni ortala */
-    text-align: center; /* İçindeki metni ortala */
+    max-width: var(--container-normal-width); /* Slightly wider for contact info */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: var(--gutter-normal); /* Add padding */
+    border: 1px solid var(--border-light); /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #1a1a1a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-    .contact__info .work__list { /* About/Contact bölümündeki listeler için */
-        text-align: center; /* Listeyi ortala */
-        list-style-position: outside; /* İşaretleri dışarıya al */
-        padding-left: 0; /* İç boşluğu kaldır */
-        width: fit-content; /* Genişliği içeriğe sığdır */
-        margin-left: auto; /* Ortalamak için */
-        margin-right: auto; /* Ortalamak için */
+    .contact__info h4 {
+        margin-top: var(--gutter-small); /* Space above 'Linkler' */
+        color: var(--pink); /* Highlight 'Linkler' */
     }
 
-        .contact__info .work__list li a {
-            display: inline-block; /* Linkleri yan yana getir */
-            margin: 0 5px; /* Linkler arasına boşluk */
+    .contact__info .work__list {
+        text-align: center;
+        list-style-position: inside; /* Kept inside for better centering */
+        padding-left: 0;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        list-style-type: none; /* Remove bullet points for links */
+    }
+
+        .contact__info .work__list li {
+            margin-bottom: 0.8rem; /* Space out list items */
         }
+
+            .contact__info .work__list li a {
+                display: inline-block;
+                margin: 0 8px; /* More space between links */
+                font-size: var(--font-size-normal); /* Slightly larger font for links */
+            }
+
+    .contact__info .btn {
+        margin-top: var(--gutter-normal); /* Space above contact button */
+    }
 
 /* --------------------------------------- */
 /* ----- Footer ----- */
@@ -596,6 +709,7 @@ body:not(.user-is-tabbing) a:focus {
 .footer {
     text-align: center;
     padding: var(--gutter-medium) 0 var(--gutter-normal);
+    border-top: var(--border-light); /* Add a border to the top of the footer */
 }
 
 .footer__social-links {
@@ -610,12 +724,18 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .footer__social-image {
-    height: 4rem;
+    height: 3.5rem; /* Slightly smaller social icons */
+    transition: transform 0.2s ease-in-out;
 }
+
+    .footer__social-image:hover {
+        transform: translateY(-3px) scale(1.1); /* Subtle lift and scale */
+    }
 
 .footer__github-buttons {
     display: flex;
     justify-content: center;
+    margin-top: var(--gutter-small); /* Space above github buttons */
 }
 
     .footer__github-buttons iframe {
@@ -626,6 +746,6 @@ body:not(.user-is-tabbing) a:focus {
 
 @media(max-width: 500px) {
     .footer {
-        padding: var(--gutter-medium) 0;
+        padding: var(--gutter-normal) 0;
     }
 }

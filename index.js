@@ -22,4 +22,13 @@ const handleMouseDownOnce = () => {
 window.addEventListener('keydown', handleFirstTab)
 
 const backToTopButton = document.querySelector(".back-to-top");
-let isBackTo
+
+const toggleBackToTop = () => {
+    if (window.scrollY > 300) { // Show button after scrolling down 300px
+        backToTopButton.classList.add("show");
+    } else {
+        backToTopButton.classList.remove("show");
+    }
+};
+
+window.addEventListener("scroll", toggleBackToTop);
