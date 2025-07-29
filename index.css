@@ -372,16 +372,16 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .nav {
-    position: fixed; /* Added: Make navigation bar fixed */
-    top: 0; /* Added: Position at the top */
-    left: 0; /* Added: Position at the left */
-    width: 100%; /* Added: Full width */
-    background-color: var(--secondary-bg); /* Added: Solid background */
-    box-shadow: 0 2px 5px var(--shadow-color); /* Added: Subtle shadow */
-    z-index: 100; /* Added: Ensure it's on top */
-    padding: 1.5rem 0; /* Adjusted: Increased vertical padding */
-    display: flex; /* Kept existing flex properties */
-    justify-content: center; /* Kept existing flex properties */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary-bg);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    z-index: 100;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: center;
 }
 
 .nav__items {
@@ -389,13 +389,13 @@ body:not(.user-is-tabbing) a:focus {
     list-style: none;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: var(--container-max-width); /* Added: Apply row max-width */
-    margin: 0 auto; /* Added: Center items within the row */
-    padding: 0 var(--gutter-normal); /* Added: Horizontal padding for items */
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--gutter-normal);
 }
 
 .nav__item:not(:last-child) {
-    margin-right: var(--gutter-normal);
+    margin-right: 4rem; /* Adjusted for more spacing */
 }
 
 @media(max-width: 500px) {
@@ -404,17 +404,17 @@ body:not(.user-is-tabbing) a:focus {
     }
 
     .nav__item {
-        margin: 0.5rem 1rem;
+        margin: 0.5rem 2rem; /* Adjusted for consistency with margin-right */
     }
 
         .nav__item:not(:last-child) {
-            margin-right: 1rem;
+            margin-right: 2rem; /* Adjusted for more spacing on smaller screens */
         }
 }
 
 @media(max-width: 400px) {
     .nav__item:not(:last-child) {
-        margin-right: var(--gutter-small);
+        margin-right: 1.5rem; /* Adjusted for more spacing on very small screens */
     }
 }
 
@@ -562,7 +562,7 @@ body:not(.user-is-tabbing) a:focus {
     flex-direction: column;
     align-items: center;
     /* Removed border, border-radius, background-color, box-shadow */
-    padding: var(--gutter-normal);
+    padding: 4rem; /* Increased padding to make the entire box larger */
     transition: transform 0.2s ease-in-out; /* Removed box-shadow transition */
 }
 
@@ -575,19 +575,19 @@ body:not(.user-is-tabbing) a:focus {
     flex: 1;
     width: 100%;
     margin-top: var(--gutter-small); /* Space between image and text */
-    text-align: center; /* Changed: Align text within the box to center */
+    text-align: left; /* Changed: Align text within the box to left */
     padding: 0 1rem; /* Add horizontal padding to text */
 }
 
     .work__text h3 {
         margin-bottom: 0.5rem; /* Adjusted spacing */
-        text-align: center; /* Center project title */
+        text-align: center; /* Keep project title centered */
     }
 
     .work__text p {
-        margin: 0.5rem auto; /* Adjusted: Centered paragraphs themselves */
+        margin: 0.5rem 0; /* Adjusted: Removed auto margin for centering */
         font-size: var(--font-size-small); /* Smaller font for details */
-        max-width: 80%; /* Added: Constrain width for readability and centering */
+        max-width: none; /* Adjusted: Removed max-width to let it take full available width */
     }
 
         .work__text p strong {
@@ -606,47 +606,50 @@ body:not(.user-is-tabbing) a:focus {
         transform: scale(1.1);
     }
 
+/* Revise .work__image-box to be a flexible container */
 .work__image-box {
-    margin-top: 0; /* Remove top margin */
+    margin-top: 0;
     width: 100%;
-    height: 600px; /* Adjusted: Fixed height for consistent image/video area, from 200px to 300px */
+    height: auto; /* Allow height to adjust */
+    max-height: 750px; /* Set a max height for images or if aspect ratio is not applied */
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: relative; /* Crucial for absolute positioning of content */
     border-radius: 4px;
     background-color: var(--primary-bg);
 }
 
     .work__image-box iframe,
     .work__image-box img {
-        position: absolute; /* Adjusted: Position children absolutely to fill the parent */
-        width: 100%; /* Adjusted: Fill 100% width */
-        height: 100%; /* Adjusted: Fill 100% height */
-        object-fit: cover; /* Adjusted: Cover the container, potentially cropping */
-        display: block; /* Removed extra space below image/iframe */
-        top: 0; /* Added: Align to top */
-        left: 0; /* Added: Align to left */
-    }
-    /* Specific adjustments for video iframes to maintain aspect ratio */
-    .work__image-box.video-container {
-        /* Removed padding-bottom: 56.25%; */
-        /* Removed height: 0; */
-        /* Removed position: relative; */
-        width: 100%; /* Added: Ensure video container fills its parent */
-        height: 100%; /* Added: Ensure video container fills its parent */
+        position: absolute; /* Always absolute within .work__image-box */
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Keep for images, but will be overridden for videos if a specific rule exists */
+        display: block;
+        top: 0;
+        left: 0;
     }
 
+    /* Specific adjustments for video iframes to maintain aspect ratio */
+    /* This will make the video container itself scale to 16:9 */
+    .work__image-box.video-container {
+        height: 0; /* collapse height */
+        padding-bottom: 56.25%; /* This creates the 16:9 aspect ratio (9/16 = 0.5625) */
+        position: relative; /* Necessary for absolute positioning of iframe children */
+        display: block; /* Override any potential 'display: flex' from parent for this specific case */
+    }
+
+        /* Make iframes inside video-container fill its aspect-ratio-driven space */
         .work__image-box.video-container iframe {
-            position: absolute;
+            position: absolute; /* Absolute to fill the relative parent */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Added: Ensure iframe covers its container */
+            object-fit: unset; /* Explicitly unset if it was inherited, or simply remove the line if it's only here */
         }
-
 
 /* --------------------------------------- */
 /* ----- Clients (Değiştirildi) ----- */
