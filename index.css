@@ -146,7 +146,7 @@ h3 {
 
 @media(max-width: 900px) {
     .heading-primary {
-        font-size: 5.5rem;
+        font-size: 4.5rem; /* Adjusted from 5.5rem */
     }
 }
 
@@ -173,7 +173,7 @@ h3 {
 
 @media(max-width: 500px) {
     .heading-primary {
-        font-size: var(--font-size-large);
+        font-size: 3.8rem; /* Adjusted from 4.8rem */
     }
 
     h2 {
@@ -585,8 +585,9 @@ body:not(.user-is-tabbing) a:focus {
     }
 
     .work__text p {
-        margin: 0.5rem 0; /* Adjust vertical spacing for paragraphs */
+        margin: 0.5rem auto; /* Adjusted: Centered paragraphs themselves */
         font-size: var(--font-size-small); /* Smaller font for details */
+        max-width: 80%; /* Added: Constrain width for readability and centering */
     }
 
         .work__text p strong {
