@@ -609,7 +609,7 @@ body:not(.user-is-tabbing) a:focus {
 .work__image-box {
     margin-top: 0; /* Remove top margin */
     width: 100%;
-    height: 200px; /* Adjusted: Fixed height for consistent image/video area */
+    height: 600px; /* Adjusted: Fixed height for consistent image/video area, from 200px to 300px */
     overflow: hidden;
     display: flex;
     justify-content: center;
