@@ -726,46 +726,73 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .contact__info {
-    max-width: var(--container-normal-width);
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    padding: var(--gutter-normal);
-    border: var(--border-color);
-    border-radius: 8px;
-    background-color: var(--secondary-bg);
-    box-shadow: 0 4px 8px var(--shadow-color);
-    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  max-width: var(--container-normal-width);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: var(--gutter-normal);
+  border: var(--border-color);
+  border-radius: 12px;                   /* 8 → 12: daha modern görünüm */
+  background-color: var(--secondary-bg);
+  box-shadow: 0 6px 16px var(--shadow-color); /* biraz daha yumuşak gölge */
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-    .contact__info h4 {
-        margin-top: var(--gutter-small);
-        color: var(--accent-color);
-    }
+.contact__info h4 {
+  margin-top: var(--gutter-small);
+  margin-bottom: 0.75rem;
+  color: var(--accent-color);
+  font-weight: 600;
+}
 
-    .contact__info .work__list {
-        text-align: center;
-        list-style-position: inside;
-        padding-left: 0;
-        width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-        list-style-type: none;
-    }
+/* Liste: gerçek <li> kullanımı, yatay akış ve “pill” görünüm */
+.contact__info .work__list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem auto 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1rem; /* satır ve sütun aralığı */
+  width: min(100%, 680px); /* çok genişe yayılmasın */
+}
 
-        .contact__info .work__list li {
-            margin-bottom: 0.8rem;
-        }
+.contact__info .work__list li {
+  margin: 0; /* gap iş görüyor */
+}
 
-            .contact__info .work__list li a {
-                display: inline-block;
-                margin: 0 8px;
-                font-size: var(--font-size-normal);
-            }
+.contact__info .work__list li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.95rem;
+  border-radius: 9999px;                 /* “pill” */
+  border: 1px solid var(--border-color);
+  background: rgba(0,0,0,0);             /* tema ile uyumlu, transparan */
+  text-decoration: none;
+  font-size: var(--font-size-normal);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-text);
+  transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease;
+}
 
-    .contact__info .btn {
-        margin-top: var(--gutter-normal);
-    }
+.contact__info .work__list li a:hover,
+.contact__info .work__list li a:focus-visible {
+  border-color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color) 14%, transparent);
+  color: var(--accent-color);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--accent-color) 18%, transparent);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.contact__info .btn {
+  margin-top: var(--gutter-normal);
+}
+
+
+    
 
 /* --------------------------------------- */
 /* ----- Footer ----- */
